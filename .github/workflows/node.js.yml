@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: "Primera prueba"
-      run: echo "Github action ejecutando..."
+      - name: "Primera prueba"
+        run: echo "Github action ejecutando..."
       - run: npm ci
       - run: npm publish
         env:
