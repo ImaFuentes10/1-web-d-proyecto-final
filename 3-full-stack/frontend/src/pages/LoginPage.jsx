@@ -5,9 +5,8 @@ import { useAuth } from "../context/AuthContext.jsx";
 
 export const LoginPage = () => {
 
-  //Llamar al custom hook useAuth para recuperar la función de actualizar usuario
-  const {setUser} = useAuth()
-  
+  const { setUser } = useAuth()//Llamar al custom hook useAuth para recuperar la función de actualizar usuario
+
   const {
     register,
     handleSubmit,
@@ -17,17 +16,17 @@ export const LoginPage = () => {
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-    console.log("Datos enviados:", data);
 
     const { email, password } = data
 
     try {
       const res = await loginRequest({ email, password })
       setUser(res.data)
-      navigate('/profile')
-    } catch (err) {
-      console.log(err)
+      navigate("/profile")
+    } catch (error) {
+      console.log(error) 
     }
+
   };
 
   return (

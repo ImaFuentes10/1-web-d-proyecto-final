@@ -46,7 +46,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
 
-  const { email, password, username } = req.body
+  const { email, password } = req.body
 
   try {
 
@@ -93,6 +93,7 @@ export const logout = (req, res) => {
 export const profile = async (req, res) => {
 
   const userFound = await User.findById(req.user.id)
+
   if (!userFound) return res.status(400).json({ message: "Usuario no encontrado" })
 
   return res.json({
@@ -101,5 +102,5 @@ export const profile = async (req, res) => {
     email: userFound.email,
     createdAt: userFound.createdAt,
     updatedAt: userFound.updatedAt,
-  })        
+  })
 } 
